@@ -11,7 +11,7 @@ const createMarkup = galleryItems
       class="gallery__image"
       src="${item.preview}"
       data-source="${item.original}"
-      alt="${item.description}"
+      title="${item.description}"
     />
   </a>
 </div>`
@@ -21,4 +21,7 @@ const createMarkup = galleryItems
 gallery.insertAdjacentHTML("beforeend", createMarkup);
 gallery.addEventListener("click", onclick);
 
-var lightbox = new SimpleLightbox('.gallery a', {  });
+const lightbox = new SimpleLightbox('.gallery a', { 
+  captionData: 'title',
+  captionDelay : 250
+ });
